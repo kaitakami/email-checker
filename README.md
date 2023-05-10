@@ -1,4 +1,4 @@
-Email Word Checker
+# Email Word Checker
 The Email Word Checker is a tool designed to help you ensure that your emails are written without spammy or bad words that could potentially harm your business reputation. At the moment, the tool is only available in Spanish.
 
 To use the Email Word Checker, simply copy and paste the text of your email into the tool. The tool will then check the text for any spammy or bad words that could potentially harm your business. If any such words are found, the tool will highlight them, allowing you to easily identify and remove them.
