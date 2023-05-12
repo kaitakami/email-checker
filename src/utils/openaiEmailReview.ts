@@ -1,3 +1,6 @@
+import * as z from "zod";
+const arraySchema = z.array(z.string());
+
 export const AIcheckEmail: (email: string) => Promise<string[]> = async (
   email
 ) => {
@@ -9,10 +12,13 @@ export const AIcheckEmail: (email: string) => Promise<string[]> = async (
     if (response.status === 200) {
       const data = await response.json(); // parse response as JSON
       const result: string[] = await data.result;
-      return result;
+      if (arraySchema.parse(result)) {
+        return result;
+      } else {
+        return ["Error: The AI returned an invalid result."];
+      }
     } else {
-      const errorText = await response.text();
-      return [`Error ${response.status}: ${errorText}`];
+      return [`Error ${response.status}: The API is currently not working :(`];
     }
   } catch (error) {
     return ["Request failed:" + error];
